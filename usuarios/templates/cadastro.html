@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Cadastro {% endblock %}
+
+{% block 'conteudo' %} 
+
+    <div class="container">
+        <form method="post" class="login" action="{% url 'valida_cadastro' %}">{% csrf_token %}
+            <div class="row">
+                <h4 style="text-align: center;">Sign Up</h4>
+                <div class="col-md-12">
+                        <input type="text" name="user" style="margin: 5px;" class="form-control" id="name" placeholder="User">
+                        <input type="text" name="email" style="margin: 5px;" class="form-control" id="email" placeholder="Email">
+                        <input type="password" name="password" style="margin: 5px;" class="form-control" id="password" placeholder="Password">
+                        <input type="password" name="confirmpassword" style="margin: 5px;" class="form-control" id="confirmpassword" placeholder="Confirm password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="submit" name="reset" id="reset" value="Reset" class="btn btn-outline-primary btn-form">
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" name="login" id="register" value="Signup" class="btn btn-outline-success btn-form">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

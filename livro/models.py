@@ -16,3 +16,6 @@ class Livros(models.Model):
 
     class Meta:
         verbose_name = 'Livro'
+
+    def __str__(self):
+        return self.nome
