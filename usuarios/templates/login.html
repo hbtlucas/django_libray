@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %} Login {% endblock %}
+
+{% block 'conteudo' %} 
+
+        <form method="post" class="login" action="{% url 'valida_login' %}">{% csrf_token %}
+            {% if status == '1' %}
+            <div class="alert alert-warning" role="alert">
+                Email ou senha inválidos!
+            </div>     
+            {% endif %}
+            
+            {% if status == '2' %}
+            <div class="alert alert-warning" role="alert">
+                Faça login antes de tentar acessar o sistema
+            </div>     
+            {% endif %}
+            <div class="row">
+                <h4 style="text-align: center;">Sign-in</h4>
+                <div class="col-md-12">
+                        <input type="text" name="email" style="margin: 5px;" class="form-control" id="email" placeholder="Email">
+                        <input type="password" name="password" style="margin: 5px;" class="form-control" id="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <a name="signup" id="signup" value="Signup" class="btn btn-outline-primary btn-form" href="{% url 'cadastro' %}">Sign-up</a>
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" name="login" id="register" value="Sing-in" class="btn btn-outline-success btn-form">
+                </div>
+            </div>
+        </form>
+{% endblock %}
