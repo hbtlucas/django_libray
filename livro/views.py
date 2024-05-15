@@ -13,5 +13,10 @@ def home(request):
         return redirect('/auth/login/?status=2')
      
 def ver_livros(request,id):
-    livros = Livros.objects.get(id=id)
-    return render(request,'ver_livro.html',{'livro':livros})
+    if request.session.get('usuario'):
+        livros = Livros.objects.get(id=id)
+        if request.session.get('usuario') == livros.usuario.id:
+            return render(request,'ver_livro.html',{'livro':livros})
+        else:
+            return HttpResponse('esse livro nao e seu')
+            
