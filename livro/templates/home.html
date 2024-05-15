@@ -27,8 +27,9 @@
                             {% endif %}
                         </p>
                     </div>
-                        <button type="submit" class="btn btn-primary">Acessar livro</button>
+                        
                     </form>
+                    <a class="btn btn-primary" href="{% url 'ver_livros' livro.id %}">Acessar livro</a>
                 </div>            
             </div>
             {% endfor %}
